@@ -23,4 +23,4 @@ $ npm run start:prod
 
 ## License
 
-  Nest is [MIT licensed](LICENSE).
+  This webapp is [MIT licensed](LICENSE).
