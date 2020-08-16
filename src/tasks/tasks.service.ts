@@ -29,4 +29,12 @@ export class TasksService {
     this.tasks.push(newTask);
     return newTask;
   }
+
+  deleteTask(id: string): Task {
+    const taskIndex = this.tasks.findIndex(task => task.id === id);
+    const theTask = this.tasks[taskIndex];
+    this.tasks.splice(taskIndex, 1);
+
+    return theTask;
+  }
 }
