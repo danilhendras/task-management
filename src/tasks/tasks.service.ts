@@ -1,6 +1,7 @@
 import {
   Injectable,
   NotFoundException,
+  InternalServerErrorException,
 } from '@nestjs/common';
 import { TaskStatus } from './task-status.enum';
 import { CreateTaskDTO } from './dto/create-task.dto';
@@ -46,17 +47,12 @@ export class TasksService {
     return found;
   }
 
-  // createTask(createTaskDTO: CreateTaskDTO): Task {
-  //   const { title, description } = createTaskDTO;
-  //   const newTask: Task = {
-  //     id: uuidv4(),
-  //     title,
-  //     description,
-  //     status: TaskStatus.OPEN,
-  //   };
-  //   this.tasks.push(newTask);
-  //   return newTask;
-  // }
+  async createTask(
+    createTaskDTO: CreateTaskDTO,
+  ): Promise<Task> {
+    return this.taskRepository.createTask(createTaskDTO);
+  }
+
   // updateTaskStatus(id: string, status: TaskStatus): Task {
   //   const theTask = this.getTaskByID(id);
   //   theTask.status = status;
