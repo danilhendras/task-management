@@ -6,7 +6,7 @@ const typeOrmConfig: TypeOrmModuleOptions = {
   port: 5432,
   username: 'danil',
   password: 'Hendra0711',
-  database: 'taskmanagement',
+  database: 'task-management',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: true,
 };
