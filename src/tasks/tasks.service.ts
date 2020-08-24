@@ -18,23 +18,11 @@ export class TasksService {
     private taskRepository: TaskRepository,
   ) {}
 
-  // getAllTasks(): Task[] {
-  //   return this.tasks;
-  // }
-  // getTasksFiltered(filterDTO: GetTasksFilterDTO): Task[] {
-  //   const { status, search } = filterDTO;
-  //   let tasks = this.getAllTasks();
-  //   if (status) {
-  //     tasks = tasks.filter(task => task.status === status);
-  //   }
-  //   if (search) {
-  //     tasks = tasks.filter(
-  //       task =>
-  //         task.title.includes(search) || task.description.includes(search),
-  //     );
-  //   }
-  //   return tasks;
-  // }
+  async getTasks(
+    filterDTO: GetTasksFilterDTO,
+  ): Promise<Task[]> {
+    return this.taskRepository.getTasks(filterDTO);
+  }
 
   async getTaskByID(id: number): Promise<Task> {
     const found = await this.taskRepository.findOne(id);
