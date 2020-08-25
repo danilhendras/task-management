@@ -37,6 +37,23 @@ class UserRepository extends Repository<User> {
     }
   }
 
+  async validateUserPassword(
+    authCredentialsDTO: AuthCredentialsDTO,
+  ): Promise<string> {
+    const { username, password } = authCredentialsDTO;
+
+    const found = await this.findOne({ username });
+
+    if (
+      found &&
+      (await found.validateUserPassword(password))
+    ) {
+      return found.username;
+    }
+
+    return null;
+  }
+
   private async hashPassword(
     password: string,
     salt: string,
