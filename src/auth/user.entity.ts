@@ -3,9 +3,11 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  Unique,
 } from 'typeorm';
 
 @Entity()
+@Unique(['username'])
 class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

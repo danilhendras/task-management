@@ -52,12 +52,6 @@ export class TasksService {
     return task;
   }
 
-  // updateTaskStatus(id: string, status: TaskStatus): Task {
-  //   const theTask = this.getTaskByID(id);
-  //   theTask.status = status;
-  //   return theTask;
-  // }
-
   async deleteTask(id: number): Promise<number> {
     const result = await this.taskRepository.delete({
       id,

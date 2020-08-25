@@ -16,6 +16,6 @@ export class AuthController {
     @Body(ValidationPipe)
     authCredentialsDTO: AuthCredentialsDTO,
   ): Promise<void> {
-    this.authService.signUp(authCredentialsDTO);
+    return this.authService.signUp(authCredentialsDTO);
   }
 }
