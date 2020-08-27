@@ -28,6 +28,9 @@ class Task extends BaseEntity {
     { eager: false },
   )
   user: User;
+
+  @Column()
+  userId: number;
 }
 
 export default Task;
